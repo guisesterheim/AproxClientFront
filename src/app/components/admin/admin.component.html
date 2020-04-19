@@ -1,0 +1,25 @@
+<div class="container">
+    <table class="table table-bordered table-inverse">
+      <tr>
+        <th>Company Name</th>
+        <th>CNPJ</th>
+        <th>Representative Name</th>
+        <th>Date Created</th>
+        <!-- <th class="text-right">Purchase Price</th>-->
+      </tr>
+      <tr *ngFor="let client of clients">
+        <td>
+          {{client.companyName}}
+        </td>
+        <td>
+          {{client.cnpj}}
+        </td>
+        <td>
+          {{client.representativeLastName}}
+        </td>
+        <td>
+          {{client.dateCreation}}
+        </td>
+      </tr>
+    </table>
+  </div>
