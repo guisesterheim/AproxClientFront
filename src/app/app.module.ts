@@ -9,13 +9,15 @@ import { AppComponent } from './app.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { HomeComponent } from './components/home/home.component';
 import { ViewClientComponent } from './components/view-client/view-client.component';
+import { CallbackComponent } from './components/callback/callback.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminComponent,
     HomeComponent,
-    ViewClientComponent
+    ViewClientComponent,
+    CallbackComponent
   ],
   imports: [
     BrowserModule,
