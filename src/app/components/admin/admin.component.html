@@ -9,7 +9,7 @@
       </tr>
       <tr *ngFor="let client of clients">
         <td>
-          {{client.companyName}}
+          <a [routerLink]="['view', client.id]">{{client.companyName}}</a>
         </td>
         <td>
           {{client.cnpj}}

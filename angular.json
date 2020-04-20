@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "AproxClientFront"
+    }
+  },
+  "defaultProject": "AproxClientFront",
+  "cli": {
+    "analytics": "ee8f0838-3462-4276-9a1e-41167a712d5c"
+  }
 }
