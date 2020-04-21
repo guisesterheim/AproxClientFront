@@ -10,6 +10,8 @@ import { AdminComponent } from './components/admin/admin.component';
 import { HomeComponent } from './components/home/home.component';
 import { ViewClientComponent } from './components/view-client/view-client.component';
 import { CallbackComponent } from './components/callback/callback.component';
+import { AuthService } from './services/auth.service';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { CallbackComponent } from './components/callback/callback.component';
     AdminComponent,
     HomeComponent,
     ViewClientComponent,
-    CallbackComponent
+    CallbackComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,7 @@ import { CallbackComponent } from './components/callback/callback.component';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [ClientService],
+  providers: [ClientService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import 'rxjs/add/operator/filter';
-import * as auth0 from 'auth0-js';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable()
@@ -11,37 +9,23 @@ export class AuthService {
 
   constructor(public router: Router, private http:HttpClient) {}
 
-  public login(): void {
-    this.auth0.authorize();
+  createAuthorizationHeader() {
+    return new HttpHeaders({'Content-Type': 'application/json'});
   }
 
-  createAuthorizationHeader(username, password) {
-    return {
-        headers: new HttpHeaders({'Content-Type': 'application/json',
-                                    "username":username,
-                                    "password":password})
-    }
-  }
+  authenticate(login){
+    let authData = JSON.stringify(login);
+    authData = JSON.parse(authData);
+    let username = authData['username'];
+    let password = authData['password'];
 
-  authenticate(username, password){
-    let body = JSON.stringify("");
-    this.auth = this.http.post("/server/api/v1/client/create", 
-                        body, this.createAuthorizationHeader(username, password)); 
+    let body = JSON.stringify(username, password);
 
+    this.auth = this.http.post("/server/authenticate", 
+                        body, { headers: this.createAuthorizationHeader(), 
+                                observe: "response", 
+                                responseType: "json"}); 
     return this.auth;
-  }
-
-  public handleAuthentication(): void {
-    this.auth.parseHash((err, authResult) => {
-      if (authResult && authResult.accessToken && authResult.idToken) {
-        window.location.hash = '';
-        this.setSession(authResult);
-        this.router.navigate(['/admin']);
-      } else if (err) {
-        this.router.navigate(['/admin']);
-        console.log(err);
-      }
-    });
   }
 
   private setSession(authResult): void {
