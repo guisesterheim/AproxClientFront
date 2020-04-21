@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
+import { ApplicationHttpClient } from './app.httpclient';
 
 const HttpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -10,27 +11,27 @@ const HttpOptions = {
 })
 export class ClientService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:ApplicationHttpClient) { }
 
   getClients() {
-    return this.http.get("/server/api/v1/client/list"); 
+    return this.http.Get("/server/api/v1/client/list"); 
   }
 
   getClient(id: number){
-    return this.http.get("/server/api/v1/client/list/" + id); 
+    return this.http.Get("/server/api/v1/client/list/" + id); 
   }
 
   createClient(client){
     let body = JSON.stringify(client);
-    return this.http.post("/server/api/v1/client/create", body, HttpOptions); 
+    return this.http.Post("/server/api/v1/client/create", body, HttpOptions); 
   }
 
   updateClient(id: number, client){
     let body = JSON.stringify(client);
-    return this.http.put("/server/api/v1/client/update", body, HttpOptions); 
+    return this.http.Put("/server/api/v1/client/update", body, HttpOptions); 
   }
 
   deleteClient(id: number){
-    return this.http.delete("/server/api/v1/client/delete/" + id); 
+    return this.http.Delete("/server/api/v1/client/delete/" + id); 
   }
 }
