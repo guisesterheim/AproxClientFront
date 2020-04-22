@@ -2,9 +2,9 @@
 
 ### This is a front component part of a bigger architecture with the following components:
 
-Client Registration service: https://github.com/guisesterheim/AproxClientService
+Authentication service: https://github.com/guisesterheim/AproxAuthentication
 
-Really BASIC Front end on Angular (just for testing purposes): https://github.com/guisesterheim/AproxClientFront
+Client Registration service: https://github.com/guisesterheim/AproxClientService
 
 -- Auto generated:
 
