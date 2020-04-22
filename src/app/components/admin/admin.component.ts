@@ -18,9 +18,10 @@ export class AdminComponent implements OnInit {
 
   getClients(){
     this.clientService.getClients().subscribe(
-      data => {this.clients = data},
-      err => console.error(err),
-      () => console.log('clients loaded')
+      data => {
+        this.clients = data.body
+      },
+      err => console.error(err)
     );
   }
 }

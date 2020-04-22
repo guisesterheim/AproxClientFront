@@ -21,7 +21,7 @@ export class ViewClientComponent implements OnInit {
   getClientRegister(id: number){
     this.clientService.getClient(id).subscribe(
       data => {
-        this.clientRegister = data;
+        this.clientRegister = data.body;
       },
       err => console.error(err),
       () => console.log('client loaded')

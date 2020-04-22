@@ -23,12 +23,12 @@ export class ClientService {
 
   createClient(client){
     let body = JSON.stringify(client);
-    return this.http.Post("/server/api/v1/client/create", body, HttpOptions); 
+    return this.http.Post("/server/api/v1/client/create", body); 
   }
 
   updateClient(id: number, client){
     let body = JSON.stringify(client);
-    return this.http.Put("/server/api/v1/client/update", body, HttpOptions); 
+    return this.http.Put("/server/api/v1/client/update", body); 
   }
 
   deleteClient(id: number){

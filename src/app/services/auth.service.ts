@@ -35,7 +35,6 @@ export class AuthService {
 
   public setSession(authResult): void {
     // Set the time that the access token will expire at
-    console.log(authResult);
     this.http.setAppToken(authResult.headers.get("authorization"));
     localStorage.setItem('access_token', authResult.headers.get("authorization"));
     localStorage.setItem('expires_at', authResult.headers.get("expires"));

@@ -27,7 +27,6 @@ export class LoginComponent implements OnInit {
       this.validMessage = "Login Successful!";
       this.authService.authenticate(this.loginForm.value).subscribe(
         data => {
-          console.log(data);
           this.loginForm.reset();
           this.authService.setSession(data);
           this.authService.redirectToAdmin();
