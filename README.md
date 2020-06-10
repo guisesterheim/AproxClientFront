@@ -1,5 +1,13 @@
 # AproxClientFront
 
+### This is a front component part of a bigger architecture with the following components:
+
+Authentication service: https://github.com/guisesterheim/AproxAuthentication
+
+Client Registration service: https://github.com/guisesterheim/AproxClientService
+
+-- Auto generated:
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
 
 ## Development server
